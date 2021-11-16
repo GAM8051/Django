@@ -3,6 +3,8 @@ from django.contrib import admin
 from django.urls import path
 from platzigram import views as local_views
 from posts import views as post_views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
 
@@ -14,4 +16,4 @@ urlpatterns = [
 
     path("post/", post_views.list_posts),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
